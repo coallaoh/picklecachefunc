@@ -2,7 +2,7 @@ import os
 import pickle
 from functools import wraps
 
-def picklecachefunc(arg_name):
+def check_cache(arg_name):
     def decorator(func):
         @wraps(func)
         def wrapper(*args, **kwargs):

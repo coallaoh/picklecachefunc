@@ -1,9 +1,9 @@
 import os
 import pickle
 import pytest
-from picklecachefunc import picklecachefunc
+from picklecachefunc import check_cache
 
-@picklecachefunc(arg_name='file_name')
+@check_cache(arg_name='file_name')
 def compute_expensive_function(file_name, x, y):
     return x + y
 
