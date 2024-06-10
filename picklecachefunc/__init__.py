@@ -1,1 +1,1 @@
-from . import check_cache
+from .picklecachefunc import check_cache
