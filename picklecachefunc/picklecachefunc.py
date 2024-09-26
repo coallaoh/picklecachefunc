@@ -2,7 +2,7 @@ import os
 import pickle
 from functools import wraps
 
-def check_cache(arg_name):
+def check_cache(arg_name, override=False):
     def decorator(func):
         @wraps(func)
         def wrapper(*args, **kwargs):
@@ -13,7 +13,7 @@ def check_cache(arg_name):
                 raise ValueError(f"Argument '{arg_name}' not found in function call")
 
             # Check if the file exists
-            if os.path.exists(file_name):
+            if os.path.exists(file_name) and not override:
                 # Load the object from the file
                 with open(file_name, 'rb') as file:
                     result = pickle.load(file)
